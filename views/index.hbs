@@ -1,0 +1,25 @@
+<form id="message-form" method="POST" action="/messages">
+  <textarea id="message-body-input" name="body" placeholder="Enter a message here."></textarea>
+  <button type="submit">Post Message</button>
+</form>
+
+<div id="messages">
+  <h2>Messages</h2>
+
+  {{#unless messages}}
+    <p>Sorry, no messages. :(</p>
+  {{else}}
+    <ol class="message-list">
+      {{#each messages}}
+        <li>
+          <div class="message-body">
+            {{body}}
+          </div>
+          <div class="message-timestamp">
+            Posted on {{createdAt}}
+          </div>
+        </li>
+      {{/each}}
+    </ol>
+  {{/unless}}
+</div>

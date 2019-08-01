@@ -1,0 +1,73 @@
+/**
+ * Module dependencies.
+ */
+
+const debug = require('debug')('project-javascript-social-wall:server');
+const http = require('http');
+const mongoose = require('mongoose');
+const app = require('../app');
+
+const SERVER_PORT = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/social_wall_development';
+
+const server = http.createServer(app);
+
+mongoose.set('useNewUrlParser', true);
+
+server.on('listening', () => {
+  const addr = server.address();
+  const boundPort = addr.port;
+
+  debug(`Listening on port ${boundPort}.`);
+  debug(addr);
+});
+
+mongoose.connect(MONGODB_URI, (error) => {
+  if (error) {
+    throw error;
+  }
+
+  server.listen(SERVER_PORT);
+});
+
+// /**
+//  * Event listener for HTTP server "error" event.
+//  */
+
+// function onErrorHandler(error) {
+//   if (error.syscall !== 'listen') {
+//     throw error;
+//   }
+
+//   // Generate user-friendly error messages for specific errors
+//   switch (error.code) {
+//     case 'EACCES':
+//       console.error(`${SERVER_PORT} requires elevated privileges`);
+//       process.exit(1);
+//       break;
+//     case 'EADDRINUSE':
+//       console.error(`${bind} is already in use. Are you running the web application in another window?`);
+//       process.exit(1);
+//       break;
+//     default:
+//       throw error;
+//   }
+// }
+
+// /**
+//  * Event listener for HTTP server "listening" event.
+//  */
+
+// function onListenHandler() {
+//   const addr = server.address();
+//   const bind = typeof addr === 'string'
+//     ? 'pipe ' + addr
+//     : 'port ' + addr.port;
+
+//   debug(`Listening on port ${bind}`);
+//   debug(`Visit http://localhost:${bind} to see the web app.`);
+// }
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */

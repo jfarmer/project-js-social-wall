@@ -1,0 +1,27 @@
+{
+  "name": "project-javascript-social-wall",
+  "description": "An introductory, single-table web application using JavaScript + Express",
+  "author": "Jesse Farmer <jesse@20bits.com>",
+  "repository": "github:jfarmer/project-javascript-social-wall",
+  "private": false,
+  "version": "1.0.0",
+  "license": "CC-BY-NC-SA-4.0",
+  "scripts": {
+    "start": "node ./bin/www",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.6.5",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
