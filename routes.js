@@ -4,12 +4,10 @@ let { ValidationError } = require('objection');
 
 let router = new Router();
 
+// Route for: GET /
 router.get('/', async(request, response) => {
-  // SELECT * FROM messages ORDER BY created_at DESC
   let messages = await Message.query().select('*').orderBy('created_at', 'DESC');
 
-  // { messages } is short-hand for { 'messages': messages }
-  // In general, { foo, bar } is short-hand for { 'foo': foo, 'bar': bar }
   response.render('index', { messages });
 });
 

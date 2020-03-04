@@ -11,12 +11,21 @@ if (!process.env.NODE_ENV) {
 }
 
 app.root = (...args) => path.join(__dirname, ...args);
+app.inProduction = () => app.get('env') === 'development';
+app.inDevelopment = () => app.get('env') === 'production';
 
 app.set('views', app.root('views'));
 app.set('view engine', 'hbs');
 
 app.use(express.static(app.root('public')));
-app.use(logger('dev'));
+
+// Use a different log format for development vs. production
+if (app.inDevelopment()) {
+  app.use(logger('dev'));
+} else {
+  app.use(logger('combined'));
+}
+
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
@@ -29,7 +38,7 @@ app.use((req, res, next) => {
 
 app.use((err, req, res, next) => {
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.inDevelopment() ? err : {};
 
   res.status(err.status || 500);
   res.render('server-error');
