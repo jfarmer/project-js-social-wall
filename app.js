@@ -11,8 +11,9 @@ if (!process.env.NODE_ENV) {
 }
 
 app.root = (...args) => path.join(__dirname, ...args);
-app.inProduction = () => app.get('env') === 'development';
-app.inDevelopment = () => app.get('env') === 'production';
+
+app.inProduction = () => app.get('env') === 'production';
+app.inDevelopment = () => app.get('env') === 'development';
 
 app.set('views', app.root('views'));
 app.set('view engine', 'hbs');
