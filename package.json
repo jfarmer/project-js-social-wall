@@ -1,27 +1,41 @@
 {
-  "name": "project-javascript-social-wall",
+  "name": "project-js-social-wall",
   "description": "An introductory, single-table web application using JavaScript + Express",
   "author": "Jesse Farmer <jesse@20bits.com>",
-  "repository": "github:jfarmer/project-javascript-social-wall",
+  "repository": "github:jfarmer/project-js-social-wall",
   "private": false,
   "version": "1.0.0",
   "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/jfarmer/project-js-social-wall/issues"
+  },
+  "homepage": "https://github.com/jfarmer/project-js-social-wall#readme",
   "scripts": {
-    "start": "node ./bin/www",
-    "lint": "eslint ."
+    "start": "node ./bin/server",
+    "lint": "npx eslint ."
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "hbs": "~4.0.4",
-    "http-errors": "~1.6.3",
-    "mongoose": "^5.6.5",
-    "morgan": "~1.9.1"
+    "@awaitjs/express": "^0.4.0",
+    "cookie-parser": "^1.4.4",
+    "debug": "^2.6.9",
+    "express": "^4.17.1",
+    "express-promise-router": "^3.0.3",
+    "hbs": "^4.1.0",
+    "http-errors": "^1.7.3",
+    "knex": "^0.20.10",
+    "morgan": "^1.9.1",
+    "objection": "^2.1.3",
+    "pg": "^7.18.2",
+    "strftime": "^0.10.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.18.2"
+    "dotenv": "^8.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jsdoc": "^3.6.3"
   }
 }

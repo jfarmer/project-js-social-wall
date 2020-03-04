@@ -1,9 +1,21 @@
 body {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   color: rgb(32, 32, 32);
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  box-sizing: border-box;
 }
 
-#page {
+#page-header {
+  margin: 20px auto;
+  width: 400px;
+}
+
+#error-page {
+  margin: 20px auto;
+  width: 900px;
+}
+
+#messages-page {
   margin: 20px auto;
   width: 400px;
 }
@@ -28,4 +40,25 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
   text-align: right;
+}
+
+.notice {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.notice.error {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.notice-header {
+  margin-top: 0rem;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
