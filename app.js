@@ -1,3 +1,5 @@
+'use strict';
+
 let path = require('path');
 let createError = require('http-errors');
 let cookieParser = require('cookie-parser');
@@ -30,6 +32,13 @@ if (app.inDevelopment()) {
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+let Knex = require('knex');
+let { Model } = require('objection');
+
+let dbConfig = require(app.root('config', 'database'));
+let knex = Knex(dbConfig[process.env.NODE_ENV]);
+Model.knex(knex);
+
 let routes = require('./routes');
 app.use('/', routes);
 
@@ -41,7 +50,7 @@ app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.error = req.app.inDevelopment() ? err : {};
 
-  res.status(err.status || 500);
+  res.status(err.statusCode || 500);
   res.render('server-error');
 });
 

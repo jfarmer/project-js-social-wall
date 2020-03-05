@@ -4,14 +4,14 @@ let { ValidationError } = require('objection');
 
 let router = new Router();
 
-// Route for: GET /
+// GET /
 router.get('/', async(request, response) => {
   let messages = await Message.query().select('*').orderBy('created_at', 'DESC');
 
   response.render('index', { messages });
 });
 
-// Route for: POST /messages
+// POST /messages
 router.post('/messages', async(request, response) => {
   let messageBody = request.body.body;
   let messageTime = new Date();
