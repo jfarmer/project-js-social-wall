@@ -11,7 +11,9 @@
   },
   "homepage": "https://github.com/jfarmer/project-js-social-wall#readme",
   "scripts": {
-    "start": "node ./bin/server",
+    "db:create": "createdb social_wall_development && createdb social_wall_test",
+    "db:drop": "dropdb social_wall_development && dropdb social_wall_test",
+    "start": "DEBUG=\"${DEBUG:=social-wall:*}\" node ./bin/server",
     "lint": "npx eslint ."
   },
   "dependencies": {
