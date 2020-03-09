@@ -51,7 +51,7 @@ let { Model } = require('objection');
 
 // Tell Knex how to connect to our database
 // See config/database.js
-let dbConfig = require(app.root('config', 'database'));
+let dbConfig = require(app.root('knexfile'));
 let knex = Knex(dbConfig[process.env.NODE_ENV]);
 Model.knex(knex);
 
