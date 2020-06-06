@@ -1,23 +1,26 @@
 {
   "env": {
-    "browser": true,
-    "es6": true
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "node": true
   },
-
   "extends": [
-    "eslint:recommended",
-    "airbnb-base"
+      "eslint:recommended",
+      "standard"
   ],
-
-  "parserOptions": {
-    "ecmaVersion": 2015
+  "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
   },
-
+  "parserOptions": {
+      "ecmaVersion": 2018
+  },
   "rules": {
-    "no-console": "off",
-    "no-unused-vars": [
-      "error",
-      { "argsIgnorePattern": "next" }
-    ]
+      "comma-dangle": ["error", "always-multiline"],
+      "prefer-const": 0,
+      "semi": [2, "always"],
+      "space-before-function-paren": ["error", "never"],
+      "quote-props": ["error", "consistent"]
   }
 }

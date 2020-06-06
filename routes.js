@@ -23,7 +23,7 @@ router.post('/messages', async(request, response) => {
     });
 
     response.redirect('/');
-  } catch(error) {
+  } catch (error) {
     if (error instanceof ValidationError) {
       let messages = await Message.query().select('*').orderBy('created_at', 'DESC');
       let errors = error.data;
