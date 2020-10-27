@@ -8,14 +8,6 @@ module.exports = {
     },
   },
 
-  test: {
-    client: 'pg',
-    connection: 'postgres://localhost:5432/social_wall_test',
-    migrations: {
-      tableName: 'knex_migrations',
-    },
-  },
-
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,

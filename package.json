@@ -11,8 +11,8 @@
   },
   "homepage": "https://github.com/jfarmer/project-js-social-wall#readme",
   "scripts": {
-    "db:create": "createdb social_wall_development && createdb social_wall_test",
-    "db:drop": "dropdb social_wall_development && dropdb social_wall_test",
+    "db:create": "createdb social_wall_development",
+    "db:drop": "dropdb social_wall_development",
     "db:migrate": "npx knex migrate:latest",
     "dev": "nodemon",
     "start": "npx cross-env DEBUG=\"${DEBUG:=social-wall:*}\" node ./bin/server",
