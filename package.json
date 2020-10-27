@@ -13,36 +13,39 @@
   "scripts": {
     "db:create": "createdb social_wall_development && createdb social_wall_test",
     "db:drop": "dropdb social_wall_development && dropdb social_wall_test",
-    "start": "DEBUG=\"${DEBUG:=social-wall:*}\" node ./bin/server",
+    "db:migrate": "npx knex migrate:latest",
+    "dev": "nodemon",
+    "start": "npx cross-env DEBUG=\"${DEBUG:=social-wall:*}\" node ./bin/server",
     "lint": "npx eslint ."
   },
   "dependencies": {
-    "@awaitjs/express": "^0.6.1",
+    "@awaitjs/express": "^0.6.3",
     "cookie-parser": "^1.4.5",
-    "debug": "^4.1.1",
+    "debug": "^4.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
-    "express-promise-router": "^3.0.3",
+    "express-handlebars": "^5.2.0",
+    "express-promise-router": "^4.0.1",
     "handlebars": "^4.7.6",
     "hbs": "^4.1.1",
-    "http-errors": "^1.7.3",
-    "knex": "^0.21.1",
+    "http-errors": "^1.8.0",
+    "knex": "^0.21.8",
     "morgan": "^1.10.0",
-    "objection": "^2.1.6",
-    "pg": "^8.2.1",
+    "objection": "^2.2.3",
+    "pg": "^8.4.2",
     "strftime": "^0.10.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^15.0.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "jsdoc": "^3.6.4"
+    "eslint-plugin-standard": "^4.0.2",
+    "jsdoc": "^3.6.6",
+    "nodemon": "^2.0.6"
   },
   "engines": {
-    "node": "13.8.0"
+    "node": "14.12.0"
   }
 }
